@@ -1,0 +1,326 @@
+@font-face {
+    font-family: 'alefregular';
+    src: url('../polices/alef-regular-webfont.woff2') format('woff2'),
+         url('../polices/alef-regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'alefbold';
+    src: url('../polices/alef-bold-webfont.woff2') format('woff2'),
+         url('../polices/alef-bold-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	font-family: alefregular;
+	font-size: 12px;
+}
+
+body {
+	width: 100%;
+	height: 100vh;
+	background-color: #D2FEEE;
+	margin: auto;
+}
+
+main {
+    margin-bottom: 90px;
+}
+
+h1 {
+    text-align: center;
+    margin-top: 10px;
+    font-size: 3em;
+    font-weight: bold;
+    color: #0058bd;
+}
+
+h2 {
+    font-size: 1em;
+    text-decoration-line: underline;
+}
+
+p {
+	font-size: 1.2em;
+	color: #888888;
+}
+
+a {
+	font-size: 1.2em;
+}
+
+
+/* ############################################################ */
+
+/* ********** HEADER ********** */
+header {
+	width: 100%;
+	height: 12%;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	background-color: white;
+	box-shadow: 0px 5px 15px #0058bd;
+	margin-bottom: 50px;
+}
+
+.logo-header {
+	width: 80%;
+	padding-left: 5%;
+}
+
+.image-banner {
+	width: 100%;
+}
+
+/* Menu déroulant du header */
+.fas {
+	font-size: 4em;
+}
+nav {
+	margin-right: 5%;
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+}
+
+nav > span, nav > a {
+	margin-top: 5%;
+	font-size: 1.5em;
+	color: #0058bd;
+	text-align: center;
+}
+
+nav > ul:after {
+	content: "";
+	display: block;
+	clear: both;
+
+}
+
+nav > ul > li {
+	position: relative;
+}
+
+nav li {
+	list-style-type: none;
+	text-align: center;
+	border-bottom: 2px solid orange;
+}
+
+nav li:last-child {
+	border-bottom: none;
+}
+
+/* Gestion affichage des sous-élements */
+
+.submenu {
+	display: none;
+	border-radius: 15px;
+	width: 600px;
+}
+
+nav li:hover .submenu /* réafficher au survol */ {
+	background-color: #0058bd; /* #0058bd */
+	opacity: 0.95;
+	display: inline-block;
+	position: absolute;
+	top: 100%;
+	right: 0%;
+}
+
+
+ .submenu li a {
+	text-decoration: none;
+	font-size: 2.8em;
+	color: #404040;
+	padding-top: 4%;
+	padding-bottom: 4%;
+	display: inline-block;
+	width: 100%;
+}
+
+/* ############################################################ */
+
+/* ********** FOOTER ********** */
+footer {
+	background-color: #404040;
+	height: 80px;
+	line-height: 100px;
+	width: 100%;
+	font-size: 2em;
+	text-align: center;
+	align-items: center;
+	position: fixed; bottom: 0; /* Provisoire */
+}
+
+.pseudo {
+    color: #0058bd;
+}
+
+header {
+    margin-bottom: 10px;
+}
+
+section, ::placeholder {
+    color : white;
+    text-align: center;
+}
+::placeholder {
+    font-style: oblique;
+}
+
+#titre {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.donnee {
+    display: flex;
+    flex-direction: row;
+}
+label {
+    font-size: 2em;
+    width: 35%;
+}
+input, select {
+    text-align: center;
+    background: #404040;
+    width: 60%;
+    border-radius: 10px;
+    border: none;
+    margin-bottom: 10px;
+    font-size: 2em;
+    color :white;
+}
+
+.texte {
+	color:#404040;
+	font-size: 1.2em;
+}
+#besoins {
+    margin-bottom: 20px;
+    text-align: center;
+    font-size: 2.3em;
+}
+#interro1, #interro2, #interro3 {
+    width: 50px;
+    height: 50px;
+}
+#modal1, #modal2, #modal3 {
+    display: none;
+    z-index: 2;
+    position: absolute;
+    background-color:#404040;
+    border: #0058bd 1px solid;
+    border-radius: 20px;
+    padding: 10px;
+    color: #0058bd;
+    font-size: 2.7em; 
+    width: 95%;
+    left: 1%;
+}
+#modal1 {
+    top:40%;
+}
+#modal2 {
+    top:40%;
+    text-align: left;
+}
+#modal3 {
+    top: 20%;
+    text-align: left;
+}
+
+ul {
+    list-style: none;
+    padding-left: 10px;
+}
+
+#oblig {
+    text-align: right;
+    margin-bottom: 0;
+    margin-top: 20px;
+    margin-right: 20px;
+    font-size: 2em;
+}
+
+.haut, .bas {
+    width: 90%;
+    margin-top: 100px;
+    margin: auto;
+    margin-bottom: 1rem;
+    border-radius: 10px;
+    border: 1px solid #0058bd;
+    background-color: #0058bd;
+    padding: 30px 0;
+    display: flex;
+    flex-direction: column;
+}
+
+input[type=radio] {
+        width: 30px;
+        height: 30px;
+        margin-right: 10px;
+}
+#genre {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    font-size: 3em;
+}
+#labgenre {
+    width: 20%;
+   
+}
+select {
+    font-size: 2.5em;
+    padding: 10px 20px;
+    /* -webkit-appearance: none; Retirer la flèche de la liste déroulante */
+    text-align-last: center;
+}
+#accord {
+    display: flex;
+    flex-direction: row;
+    margin-left: 20px;
+    margin-top: 10px;
+}
+input[type=checkbox] {   
+    width: 30px;
+    height: 30px;
+    margin: 0 20px;
+}
+#accordtext {
+    font-size: 1.2em;
+}
+input[type=submit] {
+    color:#0058bd;
+    font-weight: bold;
+    padding:0 20px;
+    border-radius: 30px;
+    box-shadow: #0058bd 0 4px 10px;
+}
+
+
+#reponse{
+    color:#0058bd;
+    /* z-index: 2;
+    position: absolute; */
+    /* background-color:#404040; */
+    /* border: #0058bd 1px solid; */
+    /* border-radius: 20px; */
+    padding: 10px;
+    font-size: 2.7em; 
+    width: 90%;
+    margin-left: 5%;
+    /* left: 1%; */
+    /* top: 50%;
+    display:none; */
+}

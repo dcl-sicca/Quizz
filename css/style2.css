@@ -1,0 +1,11 @@
+.container {
+    background-color: aqua;
+}
+
+/* .container-fluid {
+    background-color: red;
+} */
+
+.col-3 {
+    background-color: blue;
+}
