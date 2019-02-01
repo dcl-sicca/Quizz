@@ -1,6 +1,6 @@
       <div id="titre">
         <h1>Inscription</h1>&nbsp;&nbsp;
-        <img id= "interro3" src="img/speech-bubble.png" alt="interrogation"> 
+        <img id="interro3" src="img/speech-bubble.png" alt="interrogation"> 
       </div>
       <div id="modal3">
       <h2>Veuillez respecter les consignes suivantes :</h2>
@@ -34,13 +34,22 @@
               <input type="email" name="email" placeholder="email" onblur="verifMail(this)" required>
             </div> 
             <div class="donnee">
-              <label for="motDePasse">Mot de passe *</label>
-              <input type="password" name="motDePasse" placeholder="mot de passe" onblur="verifPsw(this)" required>
+              <label for="motdepasse">Mot de passe *</label>
+              <input type="password" name="motdepasse" placeholder="mot de passe" onblur="verifPsw(this)" required>
             </div> 
             <div class="donnee">
-              <label for="confMotDePasse">Confirmation <br/> du mot de passe * </label>
-              <input type="password" name="confMotDePasse" placeholder="mot de passe" onblur="verifPsw2(this)" required>
+              <label for="confmotdepasse">Confirmation <br/> du mot de passe * </label>
+              <input type="password" name="confmotdepasse" placeholder="mot de passe" onblur="verifPsw2(this)" required>
             </div>
+            <div class="donnee">
+              <label for="statut">Statut</label>
+                <select name="statut">
+                  <option value="3">Abonné</option>
+                  <option value="2">Lecteur</option>
+                  <option value="1">Admin</option>
+                </select>
+            </div>
+
 
           </div>      
            

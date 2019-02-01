@@ -1,14 +1,16 @@
 <?php
-// var_dump($_POST);
+var_dump($_POST);
+
 
 // vérification présence données
 
 if (isset($_POST['pseudo']) AND
-    isset($_POST['nom']) AND
     isset($_POST['prenom']) AND
+    isset($_POST['nom']) AND
     isset($_POST['email']) AND
-    isset($_POST['motDePasse']) AND
-    isset($_POST['confMotDePasse']) AND
+    isset($_POST['motdepasse']) AND
+    isset($_POST['confmotdepasse']) AND
+    isset($_POST['statut']) AND
     isset($_POST['accord'])) {
 
 // récupération des données
@@ -16,9 +18,13 @@ if (isset($_POST['pseudo']) AND
     $nom = $_POST['nom'];
     $prenom = $_POST['prenom'];
     $email = $_POST['email'];
-    $motdepasse = $_POST['motDePasse'];
-    $motdepasse2 = $_POST['confMotDePasse'];
+    $motdepasse = $_POST['motdepasse'];
+    $motdepasse2 = $_POST['confmotdepasse'];
+    $statut = $_POST['statut'];
     $ok = $_POST['accord'];
+
+// connection à la base de données
+   include("logbdd.php"); 
 
  // vérification pseudo pas déjà présent dans la base
     // $verifPseudo = 'SELECT count(id_membre) FROM MEMBRES WHERE pseudo_membre ='.$pseudo;
@@ -38,15 +44,22 @@ if (isset($_POST['pseudo']) AND
            
     //     }
 
- // requete insertion des données dans la base de données
-    $requete = 'INSERT INTO MEMBRE VALUES ("","'.$pseudo.'","'.$prenom.'","'.$nom.'","'.$email.'","'.$motdepasse.'","'.$dateinscription.'")';
+ // requete insertion des données dans la base de données 
+  // $requete = 'INSERT INTO membre2 ("pseudo", "prenom", "nom", "email", "motdepasse") VALUES ('.$pseudo.'",
+  // "'.$prenom.'","'.$nom.'","'.$email.'","'.$motdepasse.'")';
+
+// requete insertion des données dans la base de données
+   $requete = 'INSERT INTO membre  (`idmembre`, `pseudo`, `prenom`, `nom`, `email`, `motdepasse`, `dateinscription`, `statutmembre_idstatutmembre`) VALUES (NULL,"'.$pseudo.'",
+   "'.$prenom.'","'.$nom.'","'.$email.'","'.$motdepasse.'", CURRENT_TIMESTAMP,'.$statut.')';
+
+   
 
 // préparation et execution de la requete 
      $req = $bdd->prepare($requete);   
      $req = $bdd->exec($requete); 
 
 // fermeture de la connection
-     //mysql_close();
+    // mysql_close();
 
 // message de confirmation
     $message = "Félicitation, vous êtes désormais membre chez Quizz. <br>";
