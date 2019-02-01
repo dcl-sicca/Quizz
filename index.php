@@ -27,7 +27,69 @@
 <!-- main ----------------------------------------------------------------------------------------------->
 <main>
     <div class="container-fluid">
-        <p>Bienvenue sur le Quizz <span class="pseudo"><?php echo $pseudoUser; ?></p>
+        <?php
+
+        include("request/req_statutmembre.php");
+        $userStatut = null;
+
+        if (isset($_GET['id']))
+	    {
+            $getId = intval($_GET['id']);
+            $reqStatut->execute(array($getId));
+            $userStatut = $reqStatut->fetch();
+        }
+        
+
+        ?>
+
+
+        
+
+
+
+
+
+        <?php
+        if (isset($_SESSION['id']) AND $userStatut['idstatutmembre'] == 1)
+        { 
+            
+            ?>
+
+            <p>Bienvenue sur le Quizz <span class="pseudo"><?php echo $pseudoUser; ?> vous etes un <?php echo $userStatut['statutmembre']; ?></p>
+
+            statut = <?php echo $userStatut['idstatutmembre']; ?>
+
+        <?php
+        } 
+
+        elseif ($userStatut['idstatutmembre'] == 2) 
+        {
+            ?>
+            <p>Bienvenue sur le Quizz</p>
+
+            <p>Ici on affiche le tableau des questionnaires pour les lecteurs</p>
+
+            statut = <?php echo $userStatut['idstatutmembre']; ?>
+        <?php
+        }
+        elseif ($userStatut['idstatutmembre'] == 3) 
+        {
+            ?>
+            <p>Bienvenue sur le Quizz</p>
+
+            <p>Ici on affiche le tableau des questionnaires pour les abonnés</p>
+
+            statut = <?php echo $userStatut['idstatutmembre']; ?>
+        <?php
+        }
+        else {?>
+            <p>Bienvenue sur le Quizz</p>
+
+            Ici on affiche le tableau des questionnaires pour les non connecté
+
+        <?php
+        }
+        ?>
     </div>
 </main>
 <!-- footer ----------------------------------------------------------------------------------------------->

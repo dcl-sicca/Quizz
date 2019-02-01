@@ -20,7 +20,7 @@
 <header>
     <div class="container-fluid">
         <?php include("include/header.php"); 
-        include('request/req_questionnaire.php'); ?>
+        include('request/req_modifquestionnaire.php'); ?>
         
         
     </div>
@@ -29,41 +29,9 @@
 <main>
     <div class="container-fluid">
         <H1>Questionnaires</H1>
-        <h2>Hover Rows</h2>
-        <p><span class="pseudo"><?php echo $pseudoUser; ?></span>, Voici la liste des Questionnaires</p>            
-        <table class="table table-hover">
-            <thead>
-            <tr>
-                <th>Titre</th>
-                <th>Auteur</th>
-                <th>Date création</th>
-                <th>Statut</th>
-                <th>Categorie</th>
-                <td>Modification</td>
-            </tr>
-            </thead>
-            <tbody>
-            <?php
-
-            while ($donnees = $reponse->fetch())
-            {
-            // echo $donnees['nom_activité'] . '<br />';
-            echo '<tr>
-            <td>'.$donnees['titre_question'] .'</td>
-            <td>'.$donnees['pseudo'] .'</td>
-            <td>'.$donnees['date_creation'] .'</td>
-            <td>'.$donnees['statutquizz'] .'</td>
-            <td>'.$donnees['nomcategorie'] .'</td>
-            <td><a href="modif-questionnaire.php?id='. $_SESSION['id'].'&idquestionnaire='. $donnees['idquestionnaire'].'">Modifier</a></td>
-            </tr>';
-
-            }
-
-            $reponse->closeCursor();
-            ?>
-
-            </tbody>
-        </table>
+        <h2>Modification</h2>
+        <p><span class="pseudo"><?php echo $pseudoUser; ?></span>, Voici le questionnaire num <?= $_GET['idquestionnaire'] ?> </p>  
+        
 
     </div>
 

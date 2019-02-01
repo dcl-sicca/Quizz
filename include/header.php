@@ -11,7 +11,9 @@
 
 		$reqUser = $bdd->prepare("SELECT * FROM membre WHERE idmembre = ?");
 		$reqUser->execute(array($getId));
-		$userInfo = $reqUser->fetch();
+        $userInfo = $reqUser->fetch();
+        
+        
 	}
 
 	// Selon l'utilisateur
